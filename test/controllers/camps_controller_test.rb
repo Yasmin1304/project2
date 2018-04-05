@@ -4,6 +4,19 @@ class CampsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @camp = camps(:one)
   end
+  
+  ####################################################################
+  should have_many(:camp_instructors)
+  should belong_to(:location)
+  should belong_to(:curriculum)
+  should have_many(:instructors).through(:camp_instructors)
+  
+  should validate_presence_of(:curriculum_id)
+  should validate_presence_of(:location_id)
+  should validate_presence_of(:cost)
+  should validate_presence_of(:start_date)
+  should validate_presence_of(:end_date)
+  should validate_presence_of(:time_slot)
 
   test "should get index" do
     get camps_url

@@ -5,7 +5,7 @@ class CreateCurriculums < ActiveRecord::Migration[5.1]
       t.integer :min_rating
       t.integer :max_rating
       t.text :description
-      t.boolean :active
+      t.boolean :active, :default => true
 
       t.timestamps
     end

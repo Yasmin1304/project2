@@ -4,6 +4,11 @@ class CampInstructorsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @camp_instructor = camp_instructors(:one)
   end
+  
+  
+  
+  
+
 
   test "should get index" do
     get camp_instructors_url
