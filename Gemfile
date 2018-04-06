@@ -67,6 +67,12 @@ group :test do
   gem 'validates_timeliness'
 end
 
+
+# Fetching shoulda 2.11.3 (was 3.5.0)
+# Installing shoulda 2.11.3 (was 3.5.0)
+# Fetching shoulda-matchers 3.1.2 (was 2.8.0)
+# Installing shoulda-matchers 3.1.2 (was 2.8.0)
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'

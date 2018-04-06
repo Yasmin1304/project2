@@ -1,7 +1,7 @@
 class Camp < ApplicationRecord
+    belongs_to :curriculum
     has_many :camp_instructors
     belongs_to :location
-    belongs_to :curriculum
     has_many :instructors, through: :camp_instructors
     
     validates_presence_of(:time_slot)
@@ -12,7 +12,7 @@ class Camp < ApplicationRecord
     validates :curriculum_id, allow_nil: false, presence: true
     validates :location_id, allow_nil: false, uniqueness: {case_sensitive: false}, presence: true,numericality: {greater_than_or_equal_to: 0}
     
-    validates :cost,  numericality: {greater_than_or_equal_to: 0}
+    #validates :cost
     
     validates_date :start_date
     validates_date :end_date
@@ -30,7 +30,7 @@ class Camp < ApplicationRecord
     scope :for_curriculum, -> {where(curriculum_id: :curriculum_id)}
     
     def name
-        curriculum.name
+        Curriculum.name
     end
 
 end

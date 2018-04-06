@@ -1,12 +1,22 @@
-ENV['RAILS_ENV'] ||= 'test'
+# TODO: SimpleCov required here...
+require 'simplecov'
+SimpleCov.start 'rails'
+
+
+ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'simplecov'
-SimpleCov.start
+require 'contexts'
+
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  ##fixtures :all
+  ActiveRecord::Migration.check_pending!
 
-  # Add more helper methods to be used by all tests here...
+  # include the Contexts module for all tests
+  include Contexts
+
+  # Prof. H's helper method to increase readability
+  def deny(condition, msg="")
+    assert !condition, msg
+  end
 end

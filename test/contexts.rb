@@ -1,16 +1,15 @@
 require './test/sets/curriculum_contexts.rb'
+require './test/sets/location_contexts.rb'
 require './test/sets/camp_contexts.rb'
 require './test/sets/instructor_contexts.rb'
-require './test/sets/location_contexts.rb'
 require './test/sets/camp_instructor_contexts.rb'
 
 module Contexts
+  include Contexts::LocationContexts
   include Contexts::CurriculumContexts
   include Contexts::InstructorContexts
   include Contexts::CampContexts
   include Contexts::CampInstructorContexts
-  include Contexts::LocationContexts
-  
   
   def create_contexts
     create_currciculums
@@ -18,6 +17,14 @@ module Contexts
     create_instructors
     create_camps
     create_camp_instructors
+  end
+  
+  def destroy_contexts
+    destroy_currciculums
+    destroy_locations
+    destroy_instructors
+    destroy_camps
+    destroy_camp_instructors
   end
   
 end
