@@ -7,6 +7,11 @@ class CurriculumTest < ActiveSupport::TestCase
   should validate_presence_of(:min_rating)
   should validate_presence_of(:max_rating)
   
+  should validate_uniqueness_of(:name).case_insensitive
+  
+  should validate_numericality_of(:min_rating)
+  should validate_numericality_of(:max_rating)
+  
   context "Within context" do 
     setup do 
       create_currciculums

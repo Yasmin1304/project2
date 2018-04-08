@@ -12,7 +12,7 @@ class Instructor < ApplicationRecord
     scope :active, -> {where(active: true)}
     scope :inactive, -> {where(active: false)}
     scope :alphabetical, -> {order(:first_name, :last_name) }
-    scope :needs_bio, -> {where( :bio.nil? == true)}
+    scope :needs_bio, -> {where(bio: nil)}
     
     def name
         return last_name+","+first_name
@@ -23,6 +23,7 @@ class Instructor < ApplicationRecord
     end
     
     def for_camp
+        array = []
         
     end
 end

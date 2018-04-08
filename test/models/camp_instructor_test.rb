@@ -7,4 +7,7 @@ class CampInstructorTest < ActiveSupport::TestCase
     should validate_presence_of(:camp_id)
     should validate_presence_of(:instructor_id)
     
+    should validate_uniqueness_of(:instructor).scoped_to(:camp)
+    
+    
 end

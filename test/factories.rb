@@ -37,9 +37,9 @@ FactoryBot.define do
        association :curriculum_id
        association :location_id
        cost 100
-       start_date "12-2-2019"
-       end_date "12-6-2019"
-       time_slot "10 am"
+       start_date 2.days.from_now.to_date
+       end_date 7.days.from_now.to_date
+       time_slot "am"
        max_students 200
        active false
         
